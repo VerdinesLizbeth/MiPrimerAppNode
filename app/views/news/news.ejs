@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>News</title>
+    <!--
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self'">
+    -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <a href="#" class="navbar-brand mx-auto">News</a>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mt-4 text-center">
+                <table class="table table-stripped">
+                    <tr>
+                        <th>ID</th>
+                        <th>TITLE</th>
+                        <th>NEWS</th>
+                    </tr>
+                    <% for(var i=0; i< news.length;i++) {%>
+                        <tr>
+                            <td>
+                                <%= news[i].id_news%>
+                            </td>
+                            <td>
+                                <%= news[i].title %>
+                            </td>
+                            <td>
+                                <%= news[i].news%>
+                            </td>
+                        </tr>
+                        <% }%>
+                </table>
+            </div>
+            <div class="col-md-6 mt-4 card">
+                <form action="/news" method="post" class="card-body">
+                    <h3 class="card-title">Agrega una noticia</h3>
+                    <div class="form-group">
+                        <input id="title" type="text" name="title" class="form-control" placeholder="Title">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="news" class="form-control" placeholder="Content">
+                    </div>
+                    <input type="submit" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('title').focus();
+    </script>
+</body>
+
+</html>
